@@ -1,0 +1,22 @@
+
+
+
+$(document).ready(function(){
+
+  setInterval(updatenewmessages(),1000);
+  
+  function updatenewmessages() {
+      $.ajax({
+          url: "message1.php",
+          type:'POST',
+          cache: false,
+          data:{'messagecontent': massages},
+          dataType: "html",
+          success: function() {
+            alert(data);
+            $('#messages').html(data);
+          }
+        });
+  }
+   
+  });

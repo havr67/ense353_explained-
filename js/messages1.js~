@@ -1,0 +1,78 @@
+
+
+$(document).ready(function(){
+
+    setInterval(updatenewmessages,1000);
+    setInterval(updatenewmessages1,1000);
+
+    
+    function updatenewmessages() {
+	updatenewmessages1();
+ let sender_ajax = $('#sender_ajax').text();
+let resiver_ajax = $('#resiver_ajax').text();
+      $.ajax({
+          url: "message1.php",
+          type:'POST',
+          cache: false,
+          data:{
+            resiver_id:  resiver_ajax,
+            sender_id:  sender_ajax
+          },
+          dataType: "html",
+          success: function(data) {
+            $('#messages').html(data);
+          }
+        });
+  }
+
+    function updatenewmessages1() {
+ let sender_ajax1 = $('#resiver_ajax').text();
+ let resiver_ajax1 = $('#sender_ajax').text();
+      $.ajax({
+          url: "message3.php",
+          type:'POST',
+          cache: false,
+          data:{
+            resiver_id:  resiver_ajax1,
+            sender_id:  sender_ajax1
+          },
+          dataType: "html",
+          success: function(data) {
+            $('#messages').html(data);
+          }
+        });
+  }
+
+
+});
+
+$(document).ready(function(){
+
+    setInterval(updatenewmessages1,1000);
+
+
+    function updatenewmessages1() {
+ let sender_ajax1 = $('#resiver_ajax').text();
+ let resiver_ajax1 = $('#sender_ajax').text();
+      $.ajax({
+          url: "message3.php",
+          type:'POST',
+          cache: false,
+          data:{
+            resiver_id:  resiver_ajax1,
+            sender_id:  sender_ajax1
+          },
+          dataType: "html",
+          success: function(data) {
+            $('#messages').html(data);
+          }
+        });
+  }
+
+
+});
+
+
+
+
+
